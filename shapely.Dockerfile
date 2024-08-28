@@ -27,6 +27,8 @@ COPY $SOURCE /data
 
 # Build shapely
 RUN python setup.py build_ext --inplace && python setup.py install
+# 安装依赖包
+RUN pip install .
 # 执行文档构建
 RUN cd /data/docs && make html
 
