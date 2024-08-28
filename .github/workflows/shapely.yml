@@ -20,14 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 使用有管理员权限的Github App当作Bot账号用于绕过分支禁止直接push的要求
-      # - name: Generate Github App's token
-      #   id: app-token
-      #   uses: actions/create-github-app-token@v1
-      #   with:
-      #     app_id: ${{ secrets.BOT_APP_ID }}
-      #     private_key: ${{ secrets.BOT_PRIVATE_KEY }}
-
       # 拉取 shapely
       - name: Clone shapely
         run: git clone https://github.com/shapely/shapely.git
