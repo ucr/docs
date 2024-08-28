@@ -46,5 +46,5 @@ jobs:
           context: .
           push: true
           build-arg:
-            - SOURCE: ./ezdxf
+            - SOURCE=./ezdxf
           tags: ghcr.io/${{ github.repository }}/ezdxf:latest
