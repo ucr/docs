@@ -45,6 +45,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          file: ezdxf.Dockerfile
           push: true
           build-args: SOURCE=./ezdxf
           tags: ghcr.io/${{ github.repository }}/ezdxf:latest
