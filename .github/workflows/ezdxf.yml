@@ -22,12 +22,12 @@ jobs:
       - uses: actions/checkout@v4
 
       # 使用有管理员权限的Github App当作Bot账号用于绕过分支禁止直接push的要求
-      - name: Generate Github App's token
-        id: app-token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.BOT_APP_ID }}
-          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
+      # - name: Generate Github App's token
+      #   id: app-token
+      #   uses: actions/create-github-app-token@v1
+      #   with:
+      #     app_id: ${{ secrets.BOT_APP_ID }}
+      #     private_key: ${{ secrets.BOT_PRIVATE_KEY }}
 
       # 拉取 ezdxf
       - name: Clone ezdxf
@@ -38,7 +38,8 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ steps.app-token.outputs.token }}
+          # password: ${{ steps.app-token.outputs.token }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
