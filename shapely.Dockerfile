@@ -35,6 +35,6 @@ RUN cd /data/docs && make html
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/docs/build/html /usr/share/nginx/html
+COPY --from=build /data/docs/_build/html /usr/share/nginx/html
 
 EXPOSE 80
