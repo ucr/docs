@@ -10,7 +10,7 @@ RUN pip install .
 RUN cd ./docs && make --file Makefile.linux html
 
 # 打包镜像
-FROM nginx:latest
+FROM nginx:alpine
 
 COPY --from=build /data/docs/build/html /usr/share/nginx/html
 
