@@ -11,8 +11,7 @@ name: Document ezdxf
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: write-all
 
 jobs:
   deploy:
