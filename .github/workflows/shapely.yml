@@ -1,0 +1,50 @@
+# This workflow will upload a Python Package using Twine when a release is created
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Document shapely
+
+on:
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 使用有管理员权限的Github App当作Bot账号用于绕过分支禁止直接push的要求
+      # - name: Generate Github App's token
+      #   id: app-token
+      #   uses: actions/create-github-app-token@v1
+      #   with:
+      #     app_id: ${{ secrets.BOT_APP_ID }}
+      #     private_key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      # 拉取 shapely
+      - name: Clone shapely
+        run: git clone https://github.com/shapely/shapely.git
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          # password: ${{ steps.app-token.outputs.token }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: shapely.Dockerfile
+          push: true
+          build-args: SOURCE=./shapely
+          tags: ghcr.io/${{ github.repository }}/shapely:latest
