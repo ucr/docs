@@ -4,7 +4,7 @@ FROM python:3.12 AS build
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN pip install .[dev]
+RUN pip install -r ./requirements/doc/doc-requirements.txt && pip install .[dev]
 # 执行文档构建
 RUN cd /data/doc && make html-noplot
 
