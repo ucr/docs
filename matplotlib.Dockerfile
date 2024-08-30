@@ -6,7 +6,7 @@ ARG SOURCE
 COPY $SOURCE .
 RUN pip install -r ./requirements/dev/dev-requirements.txt && pip install .[dev]
 # 执行文档构建
-RUN cd /data/doc && make html-noplot
+RUN cd /data/doc && make html
 
 # 打包镜像
 FROM nginx:alpine
