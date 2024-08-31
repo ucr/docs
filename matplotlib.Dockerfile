@@ -9,11 +9,11 @@ ARG SOURCE
 COPY $SOURCE .
 RUN pip install -r ./requirements/dev/dev-requirements.txt && pip install .[dev]
 # 执行文档构建
-RUN cd /data/doc && make html-noplot
+RUN cd /data/doc && make html
 
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/docs/build/html /usr/share/nginx/html
+COPY --from=build /data/doc/build/html /usr/share/nginx/html
 
 EXPOSE 80
