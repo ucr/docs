@@ -7,14 +7,10 @@ RUN apt-get update && apt-get install -y build-essential
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN pip install -r ./requirements/doc_requirements.txt && \
-    pip install .
-# 执行文档构建
-RUN cd /data/doc && make html
 
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/doc/build/html /usr/share/nginx/html
+COPY --from=build /data /usr/share/nginx/html
 
 EXPOSE 80
