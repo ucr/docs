@@ -22,7 +22,7 @@ jobs:
 
       # 拉取 shapely
       - name: Clone shapely
-        run: git clone https://github.com/shapely/shapely.git
+        run: git clone --depth=1 https://github.com/shapely/shapely.git
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
