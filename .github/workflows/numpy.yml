@@ -22,7 +22,7 @@ jobs:
 
       # 拉取 numpy
       - name: Fetch numpy
-        run: curl -L https://numpy.org/doc/2.1/numpy-html.zip -o numpy-html.zip | unzip numpy-html.zip
+        run: curl -OL https://numpy.org/doc/2.1/numpy-html.zip | unzip numpy-html.zip
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
