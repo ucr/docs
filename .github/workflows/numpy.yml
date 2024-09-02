@@ -22,7 +22,7 @@ jobs:
 
       # 拉取 numpy
       - name: Fetch numpy
-        run:  curl -L https://numpy.org/doc/2.1/numpy-html.zip | unzip -d numpy -
+        run: curl -L https://numpy.org/doc/2.1/numpy-html.zip | unzip numpy-html.zip
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
@@ -38,5 +38,5 @@ jobs:
           context: .
           file: numpy.Dockerfile
           push: true
-          build-args: SOURCE=./numpy
+          build-args: SOURCE=./numpy-html
           tags: ghcr.io/${{ github.repository }}/numpy:latest
