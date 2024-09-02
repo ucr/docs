@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y build-essential
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN pip install -r ./requirements/doc-requirements.txt && \
+RUN pip install -r ./requirements/doc_requirements.txt && \
     pip install .[dev]
 # 执行文档构建
 RUN cd /data/doc && make html
