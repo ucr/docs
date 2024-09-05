@@ -20,9 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 获取最新的 tag
+      - name: Fetch latest tag
+        id: tag
+        run: curl -s "https://api.github.com/repos/shapely/shapely/tags" | echo "latest=$(jq '.[0].name' --raw-output)" >> "$GITHUB_OUTPUT"
+
       # 拉取 shapely
       - name: Clone shapely
-        run: git clone --depth=1 https://github.com/shapely/shapely.git
+        run: git clone --branch ${{ steps.tag.outputs.latest }} --depth=1 https://github.com/shapely/shapely.git
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
