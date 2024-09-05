@@ -23,7 +23,7 @@ jobs:
       # 获取最新的 tag
       - name: Fetch latest tag
         id: tag
-        run: curl -s "https://api.github.com/repos/mozman/ezdxf/releases" | jq '.[0].tag_name' --raw-output
+        run: curl -s "https://api.github.com/repos/mozman/ezdxf/tags" | jq '.[0].name' --raw-output
 
       # 拉取 ezdxf
       - name: Clone ezdxf
