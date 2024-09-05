@@ -20,9 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 获取最新的 tag
+      - name: Fetch latest tag
+        id: tag
+        run: curl -s "https://api.github.com/repos/mozman/ezdxf/releases" | jq '.[0].tag_name' --raw-output
+
       # 拉取 ezdxf
       - name: Clone ezdxf
-        run: git clone --depth=1 https://github.com/mozman/ezdxf.git
+        run: git clone --depth=1 https://github.com/mozman/ezdxf.git -b ${{step.tag.output}}
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
