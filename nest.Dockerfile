@@ -1,17 +1,16 @@
 # 编译
-FROM python:3.12 AS build
+FROM node:hydrogen-alpine AS build
 
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN pip install -r requirements-dev.txt
-RUN pip install .
+RUN npm install
 # 执行文档构建
-RUN cd ./docs && make --file Makefile.linux html
+RUN npm run build
 
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/docs/build/html /usr/share/nginx/html
+COPY --from=build /data/dist /usr/share/nginx/html
 
 EXPOSE 80
