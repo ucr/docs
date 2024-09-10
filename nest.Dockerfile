@@ -4,7 +4,7 @@ FROM node:hydrogen-alpine AS build
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN npm install
+RUN npm install --force
 # 执行文档构建
 RUN npm run build
 
