@@ -6,11 +6,11 @@ ARG SOURCE
 COPY $SOURCE .
 RUN npm install --force
 # 执行文档构建
-RUN npm run build
+RUN npm run build:prod
 
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/dist /usr/share/nginx/html
+COPY --from=build /data/dist/ /usr/share/nginx/html
 
 EXPOSE 80
