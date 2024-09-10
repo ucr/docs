@@ -6,7 +6,7 @@ ARG SOURCE
 COPY $SOURCE .
 RUN npm install --force
 # 执行文档构建
-RUN npm run build:prod && ls
+RUN npm run build:prod && ls -al /data/dist
 
 # 打包镜像
 FROM nginx:alpine
