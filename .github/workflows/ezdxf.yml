@@ -44,4 +44,4 @@ jobs:
           file: ezdxf.Dockerfile
           push: true
           build-args: SOURCE=./ezdxf
-          tags: ghcr.io/${{ github.repository }}/ezdxf:latest
+          tags: ghcr.io/${{ github.repository }}:ezdxf-latest

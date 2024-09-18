@@ -44,4 +44,4 @@ jobs:
           file: shapely.Dockerfile
           push: true
           build-args: SOURCE=./shapely
-          tags: ghcr.io/${{ github.repository }}/shapely:latest
+          tags: ghcr.io/${{ github.repository }}:shapely-latest

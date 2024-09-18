@@ -39,4 +39,4 @@ jobs:
           file: numpy.Dockerfile
           push: true
           build-args: SOURCE=./numpy-html
-          tags: ghcr.io/${{ github.repository }}/numpy:latest
+          tags: ghcr.io/${{ github.repository }}:numpy-latest

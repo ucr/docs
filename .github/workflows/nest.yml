@@ -39,4 +39,4 @@ jobs:
           file: nest.Dockerfile
           push: true
           build-args: SOURCE=./docs.nestjs.com
-          tags: ghcr.io/${{ github.repository }}/nest:latest
+          tags: ghcr.io/${{ github.repository }}:nest-latest

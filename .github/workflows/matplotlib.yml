@@ -44,4 +44,4 @@ jobs:
           file: matplotlib.Dockerfile
           push: true
           build-args: SOURCE=./matplotlib
-          tags: ghcr.io/${{ github.repository }}/matplotlib:latest
+          tags: ghcr.io/${{ github.repository }}:matplotlib-latest
