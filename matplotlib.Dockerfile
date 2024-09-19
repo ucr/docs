@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y build-essential ffmpeg texlive-full tex
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN pip install -r ./requirements/dev/build-requirements.txt && \
+RUN pip install -r ./requirements/dev/dev-requirements.txt && \
     pip install -r ./requirements/doc/doc-requirements.txt && \
     pip install .[dev]
 # 执行文档构建
