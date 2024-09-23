@@ -9,7 +9,7 @@ ARG SOURCE
 COPY $SOURCE .
 RUN pip install -r ./requirements/dev/dev-requirements.txt && \
     pip install -r ./requirements/doc/doc-requirements.txt && \
-    pip install .[dev]
+    pip install --verbose --no-build-isolation --config-settings=editable-verbose=true --editable .[dev]
 # 执行文档构建
 RUN cd /data/doc && make html
 
