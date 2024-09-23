@@ -36,6 +36,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./hello-algorithm
-          file: Dockerfile
+          file: ./hello-algorithm/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}:hello-algorithm-latest
