@@ -2,7 +2,7 @@
 FROM python:3.12 AS build
 
 # 安装依赖包
-RUN apt-get update && apt-get install -y build-essential ffmpeg texlive-full texmaker graphviz
+RUN apt-get update && apt-get install -y build-essential ffmpeg texlive-full texmaker graphviz Inkscape optipng
 
 WORKDIR /data
 ARG SOURCE
