@@ -70,7 +70,7 @@ jobs:
 
       # 拉取 python document
       - name: Get document
-        run: curl https://docs.python.org/${{ github.event.inputs.language }}/${{ github.event.inputs.version }}/archives/python-${LATEST_VERSION}-docs-html.tar.bz2 | tar -xjf -
+        run: curl https://docs.python.org/${{ github.event.inputs.language }}/${{ github.event.inputs.version }}/archives/python-${LATEST_VERSION}-docs-html.tar.bz2 | tar -xjf - -C ./archive
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
@@ -86,5 +86,5 @@ jobs:
           context: .
           file: python.Dockerfile
           push: true
-          build-args: SOURCE=./python-${LATEST_VERSION}-docs-html
+          build-args: SOURCE=./archive
           tags: ghcr.io/${{ github.repository }}:python-${{ github.event.inputs.language }}-${{ github.event.inputs.version }}
