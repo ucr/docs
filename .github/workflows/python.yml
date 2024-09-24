@@ -67,9 +67,8 @@ jobs:
       - name: Get document
         run: |
           LATEST_VERSION=$(curl https://docs.python.org/zh-cn/3.12/_static/documentation_options.js | grep "VERSION" | cut -d':' -f2 | cut -d"'" -f2)
-          echo "LATEST_VERSION=${LATEST_VERSION}" >> $GITHUB_ENV
           curl https://docs.python.org/${{ github.event.inputs.language }}/${{ github.event.inputs.version }}/archives/python-${LATEST_VERSION}-docs-html.tar.bz2 | tar -xjf -
-          ls -al
+          mv python-${LATEST_VERSION}-docs-html dist
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
@@ -85,5 +84,5 @@ jobs:
           context: .
           file: python.Dockerfile
           push: true
-          build-args: SOURCE=python-${LATEST_VERSION}-docs-html
+          build-args: SOURCE=./dist
           tags: ghcr.io/${{ github.repository }}:python-${{ github.event.inputs.language }}-${{ github.event.inputs.version }}
