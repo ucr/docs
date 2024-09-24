@@ -69,6 +69,7 @@ jobs:
           LATEST_VERSION=$(curl https://docs.python.org/zh-cn/3.12/_static/documentation_options.js | grep "VERSION" | cut -d':' -f2 | cut -d"'" -f2)
           curl https://docs.python.org/${{ github.event.inputs.language }}/${{ github.event.inputs.version }}/archives/python-${LATEST_VERSION}-docs-html.tar.bz2 | tar -xjf -
           mv python-${LATEST_VERSION}-docs-html dist
+          chmod -R 755 ./dist
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
