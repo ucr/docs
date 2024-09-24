@@ -35,7 +35,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: ./hello-algorithm
-          file: ./hello-algorithm/Dockerfile
+          context: .
+          file: hello-algorithm.Dockerfile
           push: true
+          build-args: SOURCE=./hello-algorithm
           tags: ghcr.io/${{ github.repository }}:hello-algorithm-latest
