@@ -65,6 +65,7 @@ jobs:
 
       - name: Get latest version
         run: |
+          curl https://docs.python.org/zh-cn/3.12/_static/documentation_options.js | grep -o -E [0-9]+\.[0-9]+(\.[0-9]+)?
           LATEST_VERSION=$(curl https://docs.python.org/zh-cn/3.12/_static/documentation_options.js | grep -o -E [0-9]+\.[0-9]+(\.[0-9]+)?)
           echo "LATEST_VERSION=${LATEST_VERSION}" >> $GITHUB_ENV
 
