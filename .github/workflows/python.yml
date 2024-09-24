@@ -85,5 +85,5 @@ jobs:
           context: .
           file: python.Dockerfile
           push: true
-          build-args: SOURCE=${LATEST_VERSION}
+          build-args: SOURCE=python-${LATEST_VERSION}-docs-html
           tags: ghcr.io/${{ github.repository }}:python-${{ github.event.inputs.language }}-${{ github.event.inputs.version }}
