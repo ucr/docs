@@ -5,6 +5,7 @@ WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
 RUN pip install -r requirements-docs.txt
+RUN pip install -e .
 # 执行文档构建
 RUN cd ./doc && make html
 
