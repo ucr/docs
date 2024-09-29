@@ -7,10 +7,11 @@ COPY $SOURCE .
 RUN cargo install mdbook && rustup update && rustup component add rust-docs
 # 执行文档构建
 RUN mdbook build
+RUN cp ./assets/* ./book/
 
 # 打包镜像
 FROM nginx:alpine
 
-COPY --from=build /data/book/html /usr/share/nginx/html
+COPY --from=build /data/book /usr/share/nginx/html
 
 EXPOSE 80
