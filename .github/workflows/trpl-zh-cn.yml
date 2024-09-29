@@ -22,7 +22,7 @@ jobs:
 
       # 拉取 trpl-zh-cn
       - name: Clone trpl-zh-cn
-        run: git clone  --branch ${{ steps.tag.outputs.latest }} --depth=1 https://github.com/KaiserY/trpl-zh-cn.git
+        run: git clone --depth=1 https://github.com/KaiserY/trpl-zh-cn.git
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
