@@ -4,7 +4,7 @@ FROM rust:latest AS build
 WORKDIR /data
 ARG SOURCE
 COPY $SOURCE .
-RUN cargo install mdbook rust-docs
+RUN cargo install mdbook && rustup toolchain install -c rust-docs
 # 执行文档构建
 RUN mdbook build
 
