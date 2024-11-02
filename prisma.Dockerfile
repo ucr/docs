@@ -1,4 +1,4 @@
-FROM nodejs:alpine AS build
+FROM nodejs:lts-alpine AS build
 
 WORKDIR /data
 ARG SOURCE
