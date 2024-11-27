@@ -42,4 +42,6 @@ jobs:
             SOURCE=./docs
             ALGOLIA_APP_ID=MF58UJZ648
             ALGOLIA_API_KEY=fd3d0a05bfe5d280348060ca5ea416be
+            DOCUSAURUS_POST_HOG_KEY=phc_cmc85avbWyuJ2JyKdGPdv7dxXli8xLdWDBPbvIXWJfs
+            DOCUSAURUS_BASE_URL=https://proxyhog.prisma-data.net
           tags: ghcr.io/${{ github.repository }}:prisma-latest
