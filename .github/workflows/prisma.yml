@@ -34,12 +34,12 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
-        env:
-          ALGOLIA_APP_ID: MF58UJZ648
-          ALGOLIA_API_KEY: fd3d0a05bfe5d280348060ca5ea416be
         with:
           context: .
           file: prisma.Dockerfile
           push: true
-          build-args: SOURCE=./docs
+          build-args: 
+            - SOURCE=./docs
+            - ALGOLIA_APP_ID=MF58UJZ648
+            - ALGOLIA_API_KEY=fd3d0a05bfe5d280348060ca5ea416be
           tags: ghcr.io/${{ github.repository }}:prisma-latest
