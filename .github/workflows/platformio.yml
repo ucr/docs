@@ -38,5 +38,5 @@ jobs:
           context: .
           file: platformio.Dockerfile
           push: true
-          build-args: SOURCE=./platformio
+          build-args: SOURCE=./platformio-docs
           tags: ghcr.io/${{ github.repository }}:platformio-latest
