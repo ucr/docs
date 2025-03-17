@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document platformio
+name: Make platformio
 
 on:
   workflow_dispatch:

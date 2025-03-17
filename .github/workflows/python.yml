@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document python
+name: Make python
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ on:
           - "2.7"
           - "2.6"
       language:
-        description: "Document Language"
+        description: "Make Language"
         required: true
         default: zh-cn
         type: choice

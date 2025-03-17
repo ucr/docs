@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document logto
+name: Make logto
 
 on:
   workflow_dispatch:

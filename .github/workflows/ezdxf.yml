@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document ezdxf
+name: Make ezdxf
 
 on:
   workflow_dispatch:

@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document shapely
+name: Make shapely
 
 on:
   workflow_dispatch:

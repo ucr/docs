@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Document trpl-zh-cn
+name: Make trpl-zh-cn
 
 on:
   workflow_dispatch:
